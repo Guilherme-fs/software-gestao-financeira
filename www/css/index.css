@@ -1,0 +1,860 @@
+/*
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); 
+}
+
+body {
+    -webkit-touch-callout: none;                
+    -webkit-text-size-adjust: none;            
+    -webkit-user-select: none;                  
+    background-color:#E4E4E4;
+    background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    text-transform:uppercase;
+    width:100%;
+}
+
+
+.app {
+    background:url(../img/logo.png) no-repeat center top; 
+    position:absolute;             
+    left:50%;
+    top:50%;
+    height:50px;                   
+    width:225px;                   
+    text-align:center;
+    padding:180px 0px 0px 0px;     
+    margin:-115px 0px 0px -112px;  
+                                   
+}
+
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  
+        margin:-90px 0px 0px -198px;  
+                                      
+    }
+}
+
+h1 {
+    font-size:24px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+.event {
+    border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+#deviceready.ready .event.listening { display: none; }
+#deviceready.ready .event.received { display: block; }
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+    body {
+        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
+    }
+}
+*/
+
+/*a, b, c, d, e são as classes dos icones do menu */
+.menu{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    float: middle;
+    position: absolute;
+    bottom: 0;
+    position: fixed;
+    background-color: #c9c5c5;
+}
+
+.a{
+    width: 11%;
+    height: 11%;
+    margin: 3%;
+    transform: translateY(-2px);
+}
+
+.b{
+    width: 13%;
+    height: 13%;
+    margin: 3%;
+    transform: translateY(5px);
+}
+
+.c{
+    width: 14%;
+    height: 14%;
+    margin: 3%;
+    transform: translateY(2px);
+}
+
+.d{
+    width: 10%;
+    height: 10%;
+    margin: 3%;
+    transform: translateY(-2px);
+}
+
+.e{
+    width: 12%;
+    height: 12%;
+    margin: 3%;
+    
+}
+
+/*CSS tela home*/
+
+.container2{
+  width: 100%;
+	height: 9rem;
+	margin:0;
+  border: 0;
+	background-color: #8BD4FE;
+  border-radius: 0 0 30px 30px;
+}
+
+.dicas{
+  background-color: #fff;
+  margin: 8%;
+  border-radius: 20px;
+  position: absolute;
+  top: 70px;
+  z-index:9;
+}
+
+h3.tituloDica{
+  color: rgba(0, 0, 0, 0.705);
+  margin: 10px;
+}
+
+p.textoDica{
+  color: rgba(0, 0, 0, 0.507);
+  margin: 10px;
+}
+
+h1.slogam{
+  position: absolute;
+  color: #fff;
+  margin: 8%; 
+  z-index:9;
+}
+
+.icone-engrenagem{
+  width: 10%;
+  height: 15%;
+  margin: 3%;
+  align-items: right;
+  text-align: right;
+}
+
+.circuloHome2{
+  border-radius: 350px;
+  background-color: #619ce080;
+  width:180px;
+  height:180px;
+  position: relative;
+  top: -150%;
+  left: 75%;
+  
+}
+
+.circuloHome1{
+  border-radius: 350px;
+  background-color: #619ce080;
+  width:110px;
+  height:100px;
+  position: relative;
+  left: -50px;
+  top: 10%;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+:root {
+  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+.telaTransacoesRegistradas{
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+}
+
+
+.container {
+  margin: 30px auto;
+  width: 350px;
+}
+
+
+
+.inc-exp-container {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.inc-exp-container > div {
+  flex: 1;
+  text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+  border-right: 1px solid #dedede;
+}
+
+.money {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.money.plus {
+  color: #2ecc71;
+}
+
+.money.minus {
+  color: #c0392b;
+}
+
+
+label.labelHome {
+  display: inline-block;
+  margin: 10px 0;
+}
+
+
+.value-transaction, .name-transaction {
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn {
+  cursor: pointer;
+  background-color: #9c88ff;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  border: 0;
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 30px;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn:focus,
+.delete-btn:focus {
+  outline: 0;
+}
+
+.transactions {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 40px;
+}
+
+.transactions li {
+  width: 85%;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 10px;
+  margin: 17px;
+  margin-left: 7%;
+}
+
+.transactions li.plus {
+  border-right: 5px solid #2ecc71;
+}
+
+.transactions li.minus {
+  border-right: 5px solid #c0392b;
+}
+
+.delete-btn {
+  cursor: pointer;
+  background-color: #e74c3c;
+  border: 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-100%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.transactions li:hover .delete-btn {
+  opacity: 1;
+}
+
+/*=======================================*/
+/*css da tela de transacoes registradas*/
+/*=======================================*/
+
+.cabecalho{
+	width: 100%;
+	height: 25%;
+	margin:auto;
+	background-color: #8BD4FE;
+  
+}
+
+p.h1cabecalho1{
+  color: #fff;
+    z-index:9;
+  border:none;
+  position: relative;
+  top: -7px;
+  font-size: 2rem;
+  font-weight: bold;
+  margin:5%;
+}
+
+p.h1valor{
+  color: #fff;
+    z-index:9;
+  border:none;
+  position: relative;
+  top: -17px;
+  left: 4px;
+  font-size: 20px;
+  margin:5%;
+}
+
+.bolinha1{
+  border-radius: 350px;
+  background-color: #619ce080;
+  width:320px;
+  height:320px;
+  position: relative;
+  top: -720px;
+  left: -170px;
+}
+
+
+
+.bolinha2{
+  border-radius: 350px;
+  background-color: #619ce080;
+  width:320px;
+  height:320px;
+  position: relative;
+  top: -420px;
+  left: 30px;
+}
+
+.tela-transacoesRegistradas{
+  background-color: #f7f7f7;
+  border: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+}
+.conatiner-cabecalho{
+  overflow: auto; /*"overflow: hidden" remove o scroll da barra de rolagem */
+  white-space: nowrap;
+}
+
+.transacoes-futuras{
+  width: 28%;
+  height: 17%;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+p.PTransacoesFuturas1{
+  font-size: 0.9rem;
+  margin: 5px 0px 10px 10px;
+}
+
+p.PTransacoesFuturas2{
+  font-size: 0.7rem;
+  margin: 5px 10px 10px 10px;
+  color: #838282;
+}
+
+h3.titulo-transacoes{
+  font-size: 20px;
+  margin: 5px;
+}
+
+.linha-transacoes{
+  width: 100%;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.171);
+}
+
+
+/*==========================================*/
+/*css da tela de transacoes registradas 2 */
+/*==========================================*/
+.tela-transacoesRegistradas2{
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+
+p.pCategoria{
+  color: #fff;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  position: relative;
+  top: -50px;
+  z-index:9;
+}
+
+.circulo1{
+  border-radius: 350px;
+  background-color: #619ce080;
+  width:320px;
+  height:320px;
+  position: relative;
+  top: -740px;
+  left: -180px;
+}
+
+.circulo2{
+  border-radius: 350px;
+  background-color: #619ce080;
+  width:320px;
+  height:320px;
+  position: relative;
+  top: -440px;
+  left: 20px;
+}
+
+p.pTotal{
+  color: #fff;
+  font-size: 0.9rem;
+  position: relative;
+  margin: 5%;
+  top: -13px;
+  
+}
+
+p.pValor{
+  color: #fff;
+  font-size: 0.9rem;
+  text-align: right;
+  position: relative;
+  margin: 5%;
+  top: -47px;
+  
+}
+
+.filtrarTransacoes{
+  width: 90%;
+  height: 80px;
+  margin: 5%;
+  background-color: #fff;
+  border-radius: 20px;
+  
+}
+
+select.filtrarTransacoesRegistradas{
+  width: 85%;
+  margin-left: 8%;
+}
+
+
+
+img.setaVoltar{
+  z-index: 9;
+  position: relative;
+  top: -18px;
+  left: 5%;
+  width: 10%;
+}
+
+.setaDireita{
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  margin: 0;
+  position: absolute;
+  top: 10px;
+  left: 90%;
+}
+
+button{
+ 
+  background-color: #fff;
+}
+
+
+#b{
+  width: 90%;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  box-shadow: 0 0 20px black;
+  border-radius: 5px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  padding: 10px;
+  
+  display: none;
+}
+
+#b h1.title{
+  text-align: center;
+  color: #2ecc71;
+  font-size: 30px;
+  display: block;
+  margin: 20px 0;
+}
+
+#b p.text{
+  color: #333;
+}
+
+.ok{
+  text-align: center;
+  font-size:20px;
+  color: white;
+  padding: 10px 30px;
+  cursor: pointer;
+  background-color: #3498db;
+  display: inline-block;
+  border-radius: 2px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+ ul.informacoesTransacoes {      
+  position:relative;  
+  margin:0;          
+  padding:0;
+  width:100%;        
+  height:100%;       
+}
+
+
+li.informacoesTransacoes {
+  display:block;             
+  list-style-type: none;     
+  margin:0;                  
+  background-color:#f1f1f1;    
+  box-sizing: border-box;    
+  height:25%;               
+}
+
+.informacoesTransacoes li:nth-child(odd) {          
+  clear:both;               
+  float:left;                                              
+  width:50%;                
+}
+
+.informacoesTransacoes li:nth-child(4n+2),         
+.nformacoesTransacoes li:nth-child(4n+3) {         
+  background-color:#f1f1f1;     
+}
+
+p.tituloinformacoesTransacao{
+  color: rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+
+}
+
+p.valorInformacaoTransacao{
+  font-size: 18px;
+  
+}
+
+
+
+
+
+
+/*------Categorias-------*/
+
+.categoria-icone{
+	width: 40px;
+	height: 40px;
+  margin: 5px;
+	
+}
+
+table, tr {
+   border: 1px solid #e7e2e2;
+   background-color: #ffffff;
+   font-size: 0.8rem;
+   border-radius: 10px;
+   -moz-border-radius: 5px;
+   padding: 5px;
+ }
+
+
+table{
+   margin: 5%;
+   border-collapse: separate;
+   border-spacing: 0;
+}
+
+/*=================================*/
+/*css da tela de novas transacoes*/
+/*=================================*/
+
+.tela-cadastrarTransacoes{
+	width:100%;
+	height:100%;
+	background-color:#fff;
+  border: 0;
+  margin: 0;
+}
+
+*{
+	/*
+	width:80%;
+	height:25px;
+	font-size:18px;
+	border: 1px 10px 1px 10px;
+	outline:none;
+	*/
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+	font-family: Helvetica, sans-serif;
+	color: #323232;
+	border: none;
+	
+}
+
+input.input-transacao, label, select, textarea{
+	display: block;
+	width:100%;
+}
+
+input[type="submit"]{
+	display: block;
+	width:100%;
+}
+
+input:focus, label:focus{
+	outline:none;
+}
+
+a{
+	color: #e600b4;
+}
+
+.formulario{
+	width:90%;
+	margin-left: auto;
+	margin-right:auto;
+	background-color:#fff;
+	border-radius:10px;
+	padding:25px;
+}
+
+#formulario, h2{
+	margin-bottom:25px;
+	font-size: 1.6rem; /* adaptada ao eemento root*/
+}
+
+form{
+	
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.cadastrar-transacoes{
+	flex: 1 1 45%;
+	position:realtive;
+}
+
+label{
+	font-weight: bold;
+	font-size: .8rem;
+}
+
+input{
+	border-bottom: 2px solid #323232;
+	padding: 10px;
+	font-size: .9rem;
+	margin-bottom: 40px;
+}
+
+select{
+	border-bottom: 2px solid #323232;
+	padding: 10px;
+	font-size: .9rem;
+	margin-bottom: 40px;
+}
+
+textarea{
+	border-bottom: 2px solid #323232;
+	padding: 10px;
+	font-size: .9rem;
+	margin-bottom: 40px;
+	height: 40px;
+}
+
+input[type="submit"]{
+	background-color:#619ce0ce;
+	color:#fff;
+	border:none;
+	border-radius: 20px;
+	height: 40px;
+	
+}
+
+.erro-validacao{
+	color:red;
+	position:absolute;
+	top: 57px;
+	font-size: .8rem;
+}
+
+/*======================================*/
+/*============ tela gradicos ===========*/ 
+/*======================================*/
+.cabecalhoGrafico{
+	width: 100%;
+	height: 80px;
+	margin:auto;
+	background-color: #8BD4FE;
+  
+}
+
+p.tituloGrafico{
+  color: #fff;
+    z-index:9;
+  border:none;
+  position: relative;
+  top: -17px;
+  font-size: 2rem;
+  font-weight: bold;
+  
+}
+
+
+.graficoCirculo1{
+  border-radius: 350px;
+  background-color: #619ce080;
+  width:80px;
+  height:70px;
+  position: relative;
+  top:-105%;
+  left: -15%;
+}
+
+.graficoCirculo2{
+  border-radius: 350px;
+  background-color: #619ce080;
+  width:200px;
+  height:200px;
+  position: relative;
+  top:-290px;
+  left: 80%;
+}
+
+.containerGrafico{
+  background-color: #fff;
+  width: 90%;
+  margin: 5%;
+  border-radius: 15px;
+  position: fixed;
+}
+
+h3.tituloGrafico{
+  margin: 15px;
+}
+
+th.legendaGrafico, td.legendaGrafico {
+  
+  border-collapse: collapse;
+}
+
+table.legendaGrafico, th.legendaGrafico, td.legendaGrafico {
+  
+  border: 1px solid #fff;
+}
+
+
+th.legendaGrafico{
+  width: 20%;
+}
+
+
+
+
+
+
+
+
+
+

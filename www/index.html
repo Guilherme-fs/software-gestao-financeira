@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+       
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light dark">
+        <link rel="stylesheet" href="css/index.css">
+
+        <!--Importações do jquery mobile-->
+        <link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src = "https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+        <!-- importações firebase -->
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+
+        <!--Importaçao dos graficos-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+        <title>test2</title>
+    </head>
+    <body>
+        
+        <script>
+            var firebaseConfig = {
+              apiKey: "AIzaSyBg1nvx-Zve3d5eKvU734CXBa09UEtRXvc",
+              authDomain: "salvare-26717.firebaseapp.com",
+              projectId: "salvare-26717",
+              storageBucket: "salvare-26717.appspot.com",
+              messagingSenderId: "991362456621",
+              appId: "1:991362456621:web:3e58bb7fb9cd8f17fb2ca4",
+              measurementId: "G-YYF9TPYN4E"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+        </script>
+
+<!--========================TELA HOME===================================-->
+    <div class="tela-home" data-role="page" id="telaHome">
+        <div class="container2">
+            <h1 class="slogam">Salvare</h1>
+            <a href="">
+                <img src="img/icone_engrenagem.png" alt="" align="right" class="icone-engrenagem">
+            </a>
+            <div class="dicas">
+                <h3 class="tituloDica">Dica de como economizar</h3>
+                <p class="textoDica">Aqui vai ter alguma dica de como economizar.</p>
+            </div>
+            <div class="circuloHome1"></div>
+            <div class="circuloHome2"></div>
+        </div>
+        <br/><br/><br/>
+        <div class="container">
+            <h4>Saldo atual</h4>
+            
+            <h1 id="balance" class="balance">R$ 0.00</h1>
+      
+            <div class="inc-exp-container">
+              <div>
+                <h4>Receitas</h4>
+                <p id="money-plus" class="money plus">+ R$0.00</p>
+              </div>
+      
+              <div>
+                <h4>Despesas</h4>
+                <p id="money-minus" class="money minus">- R$0.00</p>
+              </div>
+            </div>
+      
+            <h3>Transações</h3>
+            
+            <ul id="transactions" class="transactions"></ul>
+      
+            <h3>Adicionar transação</h3>
+            
+            <form id="form">
+              <div class="form-control">
+                <label for="text">Nome</label>
+                <input type="text" data-role="none" id="" placeholder="Nome da transação" />
+              </div>
+      
+              <div class="form-control">
+                <label for="amount">Valor <br />
+                  <small>(negativo - despesas, positivo - receitas)</small>
+                </label>
+                <input type="number" data-role="none" id="" placeholder="Valor da transação" />
+              </div>
+      
+              <button class="btn" data-role="none">Adicionar</button>
+            </form>
+        </div>
+
+        <br/><br/>
+    
+        <div class="menu">
+            <a href="#telaHome">
+                <img src="img/icone_menu_principal_1.png" alt="" class="a">
+            </a>
+            <a href="#telaTransacoesRegistradas">
+                <img src="img/icone_menu_principal_2.png" alt="" class="b">
+            </a>
+            <a href="#telaCadastrarTransacoes">
+                <img src="img/icone_menu_principal_3.png" alt="" class="c">
+            </a>
+            <a href="#telaGraficos" >
+                <img src="img/icone_menu_principal_4.png" alt="" class="d">
+            </a>
+            <a href="#telaObjetivos">
+                <img src="img/icone_menu_principal_5.png" alt="" class="e">
+            </a>
+        </div>
+    </div>
+
+<!--========================TELA Transacoes Registradas===================================-->
+    <div class="tela-transacoesRegistradas" data-role="page" id="telaTransacoesRegistradas">
+        <div class="cabecalho">
+            <br/><br/>
+            <p class="h1cabecalho1">Saldo atual</p>
+            <p class="h1valor">R$ 0,00</p>
+            <div class="bolinha2"></div>
+            <div class="bolinha1"></div>
+        </div>
+        
+        <br/>
+        <h3 class="titulo-transacoes">Transações futuras</h3>
+        <div class="conatiner-cabecalho">
+            <div class="transacoes-futuras">
+                <img src="img/icone_outros-removebg-preview.png" alt="" class="categoria-icone">
+                <p class="PTransacoesFuturas1">R$ 150</p>
+                <p class="PTransacoesFuturas2">Em 2 dias</p>
+            </div>
+            <div class="transacoes-futuras">
+                <img src="img/icone_outros-removebg-preview.png" alt="" class="categoria-icone">
+                <p class="PTransacoesFuturas1">R$ 150</p>
+                <p class="PTransacoesFuturas2">Em 2 dias</p>
+            </div>
+            <div class="transacoes-futuras">
+                <img src="img/icone_outros-removebg-preview.png" alt="" class="categoria-icone">
+                <p class="PTransacoesFuturas1">R$ 150</p>
+                <p class="PTransacoesFuturas2">Em 2 dias</p>
+            </div>
+            <div class="transacoes-futuras">
+                <img src="img/icone_outros-removebg-preview.png" alt="" class="categoria-icone">
+                <p class="PTransacoesFuturas1">R$ 150</p>
+                <p class="PTransacoesFuturas2">Em 2 dias</p>
+            </div>
+            <div class="transacoes-futuras">
+                <img src="img/icone_outros-removebg-preview.png" alt="" class="categoria-icone">
+                <p class="PTransacoesFuturas1">R$ 150</p>
+                <p class="PTransacoesFuturas2">Em 2 dias</p>
+            </div>
+                
+        </div>
+        <br/>
+        <div class="linha-transacoes"></div>
+        <br/>
+        <h3 class="titulo-transacoes">Transações passadas</h3>
+        <!--
+        <script type="text/javascript">
+            function redirecionamentoSemHistorico(){
+                window.location.replace("");
+            }
+            function redirecionamentoComHistorico(){
+                window.location.href = "";
+            }
+        </script>
+        -->
+        
+        <!--
+            <table style="width:90%"  align=center id="listaTransacoesPassadas"></table>
+        -->
+
+        
+        <table style="width:90%"  align=center id="listaTransacoesPassadas">
+            
+            <!--
+                --------------------------------------------------------------------------------------------------------------
+            <tr>
+                <th class="categoria"><img src="img/icone_mais-removebg-preview.png" alt="" class="categoria-icone"></th>
+                <td class="categoria">
+                    <a href="" id="valor" onclick="capturar()">
+                        Criar nova categoria
+                    </a>
+                </td>                                       
+            </tr>
+            --------------------------------------------------------------------------------------------------------------
+            -->
+                           
+            
+                <tr>
+                <th class="categoria">
+                    <a href="#page-2-1" >
+                        <img src="img/icone_alimentacao.png" alt="" class="categoria-icone">
+                    </a>
+                </th>
+                <td class="categoria">
+                    <a href="#page-2-1" >Alimentacao</a>
+                </td>
+                <td class="categoria">
+                    <a href="#page-2-1" id="valorAlimentacao" >R$ 0,00</a>
+                </td>
+                </a>
+            </tr>
+           
+            <tr>
+                <button data-role="none" onclick="capturar()">
+                    <th class="categoria">
+                        <a href="#page-2-2">
+                            <img src="img/icone_casa-removebg-preview.png" alt="" class="categoria-icone">
+                        </a>
+                    </th>
+                    <td class="categoria">
+                        <a href="#page-2-2">Casa</a> 
+                    </td>  
+                    <td class="categoria">
+                        <a href="#Page-2-2"  id="valorCasa">R$ 0,00</a> 
+                    </td>
+                </button>                                     
+            </tr>               
+            <tr>
+                <th class="categoria">
+                    <a href="#page-2-3"><img src="img/icone_compras.png" alt="" class="categoria-icone">
+                    </a>
+                </th>
+                <td class="categoria">
+                    <a href="#page-2-3">
+                        Compras
+                    </a> 
+                </td> 
+                <td class="categoria">
+                    <a href="#page-2-3" id="valorCompras">
+                        R$ 0,00
+                    </a> 
+                </td>                                      
+            </tr>               
+            <tr>
+                <th class="categoria">
+                    <a href="#page-2-4"><img src="img/icone_dividas_e_emprestimos-removebg-preview.png" alt="" class="categoria-icone">
+                    </a>
+                </th>
+                <td class="categoria">
+                    <a href="#page-2-4">Dividas e empréstimos</a>
+                </td> 
+                <td class="categoria">
+                    <a href="#page-2-4" id="valorEmprestimos">R$ 0,00</a>
+                </td>                                      
+            </tr>               
+            <tr>
+                <th class="categoria">
+                    <a href="#page-2-5">
+                        <img src="img/investimentos4-removebg-preview.png" alt="" class="categoria-icone">
+                    </a>
+                </th>
+                <td class="categoria">
+                    <a href="#page-2-5">Investimentos</a> </td>   
+                <td class="categoria">
+                    <a href="#page-2-5" id="valorInvestimentos">R$ 0,00</a>
+                </td>                                    
+            </tr>               
+            <tr>
+                <th class="categoria">
+                    <a href="#page-2-6">
+                        <img src="img/icone_lazer-removebg-preview.png" alt="" class="categoria-icone">
+                    </a>
+                </th>
+                <td class="categoria">
+                    <a href="#page-2-6">Lazer e hobbies</a>
+                </td>    
+                <td class="categoria">
+                    <a href="#page-2-6" id="valorHobbies">R$ 0,00</a>
+                </td>                                   
+            </tr>               
+            <tr>
+                <th class="categoria">
+                    <a href="#page-2-7">
+                        <img src="img/icone_mercado-removebg-preview.png" alt="" class="categoria-icone">
+                    </a>
+                </th>
+                <td class="categoria">
+                    <a href="#page-2-7">Mercado</a>
+                </td>  
+                <td class="categoria">
+                    <a href="#page-2-7" id="valorMercado">R$ 0,00</a>
+                </td>                                     
+            </tr>               
+            <tr>
+                <th class="categoria"><img src="img/icone_outros-removebg-preview.png" alt="" class="categoria-icone"></th>
+                <td class="categoria">
+                    <a href="#page-2-8">Outros</a>
+                </td> 
+                <td class="categoria">
+                    <a href="#page-2-8" id="valorOutros">R$ 0,00</a>
+                </td>                                      
+            </tr>               
+            <tr>
+                <th class="categoria"><img src="img/icone_pets-removebg-preview.png" alt="" class="categoria-icone"></th>
+                <td class="categoria">
+                    <a href="#page-2-9">Pets</a>
+                </td> 
+                <td class="categoria">
+                    <a href="#page-2-9" id="valorPets">R$ 0,00</a>
+                </td>                                      
+            </tr>               
+            <tr>
+                <th class="categoria"><img src="img/icone_presentes_doações-removebg-preview.png" alt="" class="categoria-icone"></th>
+                <td class="categoria">
+                    <a href="#page-2-10">Presentes e doações</a>
+                </td> 
+                <td class="categoria">
+                    <a href="#page-2-10" id="valorDoacoes">R$ 0,00</a>
+                </td>                                      
+            </tr>               
+            <tr>
+                <th class="categoria"><img src="img/icone_trabalho-removebg-preview.png" alt="" class="categoria-icone"></th>
+                <td class="categoria">
+                    <a href="#page-2-11">Trabalho</a>
+                </td>  
+                <td class="categoria">
+                    <a href="#page-2-11" id="valorTrabalho">R$ 0,00</a>
+                </td>                                     
+            </tr>               
+            <tr>
+                <th class="categoria"><img src="img/icone_transporte-removebg-preview.png" alt="" class="categoria-icone"></th>
+                <td class="categoria">
+                    <a href="#page-2-12">Transporte</a>
+                </td> 
+                <td class="categoria">
+                    <a href="#page-2-12" id="valorTransporte">R$ 0,00</a>
+                </td>                                      
+            </tr>               
+            <tr>
+                <th class="categoria"><img src="img/icone_viagem-removebg-preview.png" alt="" class="categoria-icone"></th>
+                <td class="categoria">
+                    <a href="#page-2-13">Viagem</a>
+                </td>   
+                <td class="categoria">
+                    <a href="#page-2-13" id="valorViagem">R$ 0,00</a>
+                </td>                                   
+            </tr>                              
+            
+        </table>
+       
+
+
+        <br/><br/><br/><br/>
+
+        <div class="menu">
+            <a href="#telaHome">
+                <img src="img/icone_menu_principal_1.png" alt="" class="a">
+            </a>
+            <a href="#telaTransacoesRegistradas">
+                <img src="img/icone_menu_principal_2.png" alt="" class="b">
+            </a>
+            <a href="#telaCadastrarTransacoes">
+                <img src="img/icone_menu_principal_3.png" alt="" class="c">
+            </a>
+            <a href="#telaGraficos" >
+                <img src="img/icone_menu_principal_4.png" alt="" class="d">
+            </a>
+            <a href="#telaObjetivos">
+                <img src="img/icone_menu_principal_5.png" alt="" class="e">
+            </a>
+        </div>
+    </div>
+
+<!--========================TELA com as transações ja registradas 2===================================-->
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-1">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+
+            
+                <div class="valoresRegistrados">
+                <ul id="t" class="transactions">
+                
+                    
+                    <li >
+                        Salário 
+                        <span align="center">10/04/2021</span>
+                        <span>-$400</span>
+                        <button data-role="none" onclick="pop()"><img src="img/setaDireita.png" class="setaDireita"></button>
+                        <button data-role="none" class="delete-btn">x</button>
+                    </li>
+                    
+                    
+                </ul>
+
+                <div id="b">
+                    <h1 class="title">Dados da transação</h1>
+                    
+
+                    <ul class="informacoesTransacoes">
+                        <li class="informacoesTransacoes"><p class="tituloinformacoesTransacao">Valor</p></li>
+                        <li class="informacoesTransacoes"><p class="tituloinformacoesTransacao">Conta</p></li>
+                        <li class="informacoesTransacoes"><p class="valorInformacaoTransacao">R$ 0,00</p></li>
+                        <li class="informacoesTransacoes"><p class="valorInformacaoTransacao">Nome da conta</p></li>
+                        <li class="informacoesTransacoes"><p class="tituloinformacoesTransacao">Data</p></li>
+                        <li class="informacoesTransacoes"><p class="tituloinformacoesTransacao">Categoria</p></li>
+                        <li class="informacoesTransacoes"><p class="valorInformacaoTransacao">00/00/0000</p></li>
+                        <li class="informacoesTransacoes"><p class="valorInformacaoTransacao">Categoria</p></li>
+                        <li class="informacoesTransacoes"><p class="tituloinformacoesTransacao">Descricao</p></li>
+                        <li class="informacoesTransacoes"></li>
+                        <br/><br/>
+                        <p class="valorInformacaoTransacao">Alguma descrição sobre a transação registrada.</p>
+                        
+                      </ul>
+                    <br/><br/>
+                    
+                    <button class="ok" data-role="none" onclick="pop()">Ok</button>
+                </div>
+                <script type="text/javascript">
+                    /*
+                    var c = 0;
+                    function pop(){
+                        if(c === 0){
+                            document.getElementById("b").style.display = "block";
+                            c = 1;
+                        }else{
+                            document.getElementById("b").style.display = "none";
+                            c = 0;
+                        }
+                    }
+                    */
+                </script>
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-2">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t2" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-3">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t3" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-4">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t4" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-5">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t5" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-6">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t6" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-7">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t7" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-8">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t8" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-9">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t9" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-10">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t10" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-11">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t11" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-12">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t12" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    <div class="tela-transacoesRegistradas2" data-role="page" id="page-2-13">
+        <div class="tela-transacoesRegistradas2">
+            <div class="cabecalho">
+                <br /><br />               
+                <a href="#telaTransacoesRegistradas">
+                    <img class="setaVoltar" src="img/setaVoltar.png" alt="">
+                </a>
+                <p class="pCategoria" id="nomeCategoria">Nome da categoria</p>
+                <p class="pTotal">Total</p>
+                <p class="pValor">R$ 0,00</p>
+                <div class="circulo2"></div>
+                <div class="circulo1"></div>
+            </div>
+            
+            <div class="filtrarTransacoes">
+                <br/>
+                <select id="repetir" data-role="none" class="filtrarTransacoesRegistradas" height="40px">
+                    <option value="">Filtar por</option>
+                    <option value="nome">Nome</option>
+                    <option value="valor">Valor</option>
+                    <option value="data">Data</option>
+                </select>
+            </div>
+           
+                <div class="valoresRegistrados">
+                <ul id="t13" class="transactions"></ul>
+
+                <div id="b"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+
+
+    
+
+<!--========================TELA Cadastrar transações===================================-->
+    <div class="tela-cadastrarTransacoes" data-role="page" id="telaCadastrarTransacoes">
+        <div class="formulario" data-role="content">
+            <form class="box" id="for" action="tela_login.html" method="POST">
+                <h2>Transações</h2>
+                <div class="cadastrar-transacoes">
+                    <label for="">Nome da transação</label><br/>
+                    <input type="text" data-role="none" id="text" class="input-transacao" name="nome" placeholder="Crie um nome para a transação"><br/>
+                </div>
+                <div class="cadastrar-transacoes">
+                    <label for="">Valor</label><br/>
+                    <input type="text" data-role="none" id="amount" class="input-transacao" name="valor" placeholder="0,00" >
+                </div>
+                <div class="cadastrar-transacoes">
+                    <label for="">Data</label><br/>
+                    <input type="date" data-role="none" id="data" class="input-transacao" name="data" placeholder="Crie um nome para a transação"><br/>
+                </div>
+                <div class="cadastrar-transacoes">
+                    <label for="">Repetir</label><br/> 
+                    <select id="repetir" data-role="none" onChange="update()" class="select-transacao">
+                        <option value="nunca">Nunca</option>
+                        <option value="diariamente">Diariamente</option>
+                        <option value="semanalmente">Semanalmente</option>
+                        <option value="quinzenalmente">Quinzenalmente</option>
+                        <option value="mensalmente">Mensalmente</option>                         
+                    </select> 
+                </div>
+
+                <select id="language" data-role="none" onChange="update()">
+                    <option value="pt">Português</option>
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                </select>
+                <input type="text" id="value" data-role="none">
+                <input type="text" id="text" data-role="none">
+        
+                <script type="text/javascript">
+                    function update() {
+                        var select = document.getElementById('language');
+                        var option = select.options[select.selectedIndex];
+        
+                        var g = document.getElementById('value').value = option.value;
+                        var h = document.getElementById('text').value = option.text;
+                        console.log(g);
+                        console.log(h);
+                    }
+        
+                    update();
+                </script>
+
+                
+                <!--    
+                    
+                    <label for="repetir" >Repetir:</label><br/>
+                    <select id="repetir" id="repetir" data-role="none" class="select-transacao" height="40px">
+                        <option value="nunca">Nunca</option>
+                        <option value="diariamente">Diariamente</option>
+                        <option value="semanalmente">Semanalmente</option>
+                        <option value="quinzenalmente">Quinzenalmente</option>
+                        <option value="mensalmente">Mensalmente</option>
+                    </select>
+                    
+                </div>
+                
+                <div class="cadastrar-transacoes">
+                    <label for="">Terminar em</label><br/>
+                    <input type="date" id="data_fim" data-role="none" class="input-transacao" name="" placeholder="Crie um nome para a transação"><br/>
+                </div>
+                -->
+                <div class="cadastrar-transacoes">
+                    <label for="categoria">Categoria</label><br/>
+                    
+                    <select id="categoria" id="categoria" data-role="none" class="select-transacao">
+                        <option value="outros">Outros</option>
+                        <option value="alimentacao">Alimentação</option> 
+                        <option value="casa">Casa</option>
+                        <option value="compras">Compras</option> 
+                        <option value="dividasEmprestimos">Dividas e emprestimos</option> 
+                        <option value="investimetos">Investimentos</option> 
+                        <option value="lazer">Lazer e hobbies</option>
+                        <option value="mercado">Mercado</option>                         
+                        <option value="pets">Pets</option> 
+                        <option value="presentes">Presentes e doações</option>
+                        <option value="trabalho">Trabalho</option> 
+                        <option value="transporte">Transporte</option> 
+                        <option value="viagem">Viagem</option>                         
+                    </select>
+                </div>
+                <div class="cadastrar-transacoes">
+                    <label for="">Comentarios</label><br/>
+                    <textarea name="comentario" id="comentario" data-role="none" class="input-transacao" id="comentario" cols="30" rows="10" placeholder="Adicione um comentario"></textarea><br/>
+                </div>
+
+                
+               <button class="btn" data-role="none">Adicionar</button>
+                
+                
+                <p class="erro-validacao"></p>
+                <br/><br/><br/>
+            </form>
+        </div>
+
+        <div class="menu">
+            <a href="#telaHome">
+                <img src="img/icone_menu_principal_1.png" alt="" class="a">
+            </a>
+            <a href="#telaTransacoesRegistradas" >
+                <img src="img/icone_menu_principal_2.png" alt="" class="b">
+            </a>
+            <a href="#telaCadastrarTransacoes">
+                <img src="img/icone_menu_principal_3.png" alt="" class="c">
+            </a>
+            <a href="#telaGraficos" >
+                <img src="img/icone_menu_principal_4.png" alt="" class="d">
+            </a>
+            <a href="#telaObjetivos">
+                <img src="img/icone_menu_principal_5.png" alt="" class="e">
+            </a>
+        </div>
+    </div>
+
+    
+
+<!--========================TELA GRAFICOS===================================-->
+    <div class="tela-graficos" data-role="page" id="telaGraficos">
+        <div class="cabecalhoGrafico">
+            <br/><br/>
+            <p class="tituloGrafico">Relatorios</p>
+            
+            <div class="graficoCirculo1"></div>
+            <div class="graficoCirculo2"></div>
+        </div>
+
+        <div class="containerGrafico">
+
+            <h3 class="tituloGrafico">Despesas passadas</h3>
+
+            <canvas id="myChart" class="canvas" ></canvas>
+
+            <table class="legendaGrafico" style="width:70%" align=center id="legendaGrafico">           
+                <tr>
+                    <th class="legendaGrafico">algo</th>
+                    <td class="legendaGrafico">algo</td>                   
+                </tr>
+                <tr>
+                    <th class="legendaGrafico">algo</th>
+                    <td class="legendaGrafico">algo</td>
+                </tr>
+                <tr>
+                    <th class="legendaGrafico">algo</th>
+                    <td class="legendaGrafico">algo</td>
+                </tr>                   
+            </table>
+        </div>
+       
+       <script>
+
+            const alert = () =>{
+
+            /*
+            var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+            var yValues = [55, 49, 44, 24, 0];
+            var barColors = [
+              "#b91d47",
+              "#00aba9",
+              "#2b5797",
+              "#e8c3b9",
+              "#1e7145"
+            ];
+            
+            new Chart("myChart", {
+              type: "doughnut",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  backgroundColor: barColors,
+                  data: yValues
+                }]
+              },
+              options: {
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+            */
+            }
+            
+            alert()
+            </script>
+        
+
+        <div class="menu">
+            <a href="#telaHome">
+                <img src="img/icone_menu_principal_1.png" alt="" class="a">
+            </a>
+            <a href="#telaTransacoesRegistradas">
+                <img src="img/icone_menu_principal_2.png" alt="" class="b">
+            </a>
+            <a href="#telaCadastrarTransacoes">
+                <img src="img/icone_menu_principal_3.png" alt="" class="c">
+            </a>
+            <a href="#telaGraficos" >
+                <img src="img/icone_menu_principal_4.png" alt="" class="d">
+            </a>
+            <a href="#telaObjetivos">
+                <img src="img/icone_menu_principal_5.png" alt="" class="e">
+            </a>
+        </div>
+    </div>
+
+<!--========================TELA METAS E OBJETIVOS===================================-->
+    <div class="tela-objetivos" data-role="page" id="telaObjetivos">
+
+       
+
+        <div class="menu">
+            <a href="#telaHome">
+                <img src="img/icone_menu_principal_1.png" alt="" class="a">
+            </a>
+            <a href="#telaTransacoesRegistradas">
+                <img src="img/icone_menu_principal_2.png" alt="" class="b">
+            </a>
+            <a href="#telaCadastrarTransacoes">
+                <img src="img/icone_menu_principal_3.png" alt="" class="c">
+            </a>
+            <a href="#telaGraficos" >
+                <img src="img/icone_menu_principal_4.png" alt="" class="d">
+            </a>
+            <a href="#telaObjetivos">
+                <img src="img/icone_menu_principal_5.png" alt="" class="e">
+            </a>
+        </div>
+    </div>
+
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+        <script src="js/app.js"></script>
+
+
+    </body>
+</html>
